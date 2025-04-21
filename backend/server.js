@@ -11,9 +11,10 @@ const app = express();
 connectDB();
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // your frontend URL
-    credentials: true,               // if you're using cookies or sessions
-  };
+  origin: 'https://pixlune.com', 
+  credentials: true,             
+};
+
   
 app.use(express.json());
 app.use(cors(corsOptions));
