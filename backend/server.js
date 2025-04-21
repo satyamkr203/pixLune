@@ -18,12 +18,16 @@ const allowedOrigins = ['https://pix-lune.vercel.app'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+      callback(null, true);  // Allow the origin
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // Allow cookies/credentials to be sent
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow methods you want
+  allowedHeaders: ['Content-Type', 'Authorization'],    // Allow headers you want
+  credentials: true,  // Allow sending cookies
+  preflightContinue: false,  // Prevent server from automatically sending a response to preflight
+  optionsSuccessStatus: 204,  // For legacy browsers
 };
 
 app.use(cors(corsOptions));
