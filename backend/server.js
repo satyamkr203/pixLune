@@ -16,18 +16,20 @@ app.use(express.json());
 const allowedOrigins = ['https://pix-lune.vercel.app'];
 
 const corsOptions = {
-  origin: '*',  // Allow all origins temporarily
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow necessary methods
-  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow necessary headers
-  credentials: true,  // Allow credentials (cookies)
-  preflightContinue: false,  // Don't send a preflight response automatically
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);  // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow methods you want
+  allowedHeaders: ['Content-Type', 'Authorization'],    // Allow headers you want
+  credentials: true,  // Allow sending cookies
+  preflightContinue: false,  // Prevent server from automatically sending a response to preflight
   optionsSuccessStatus: 204,  // For legacy browsers
 };
-
-app.use(cors(corsOptions));  // Use the CORS configuration globally
-
 app.use(cors(corsOptions));
-
 app.use(morgan('dev'));
 app.use("/api", allRoutes);
 
