@@ -10,10 +10,7 @@ export const HeroSection = () => {
 
     return (
         <section className="relative bg-[#000000] text-white py-20 px-4 overflow-hidden">
-            {/* Top Glow */}
             <div className="absolute -left-40 top-20 w-[400px] h-[400px] bg-white rounded-full blur-[200px] opacity-50 z-0" />
-
-            {/* Hero Title + Description */}
             <div className="relative z-10 text-center pt-10">
                 <h1 className="text-4xl md:text-6xl font-bold text-green-300 mb-4">
                     Free AI Image Generator: <br /> Text to Image Online
@@ -31,23 +28,16 @@ export const HeroSection = () => {
                     Generate AI Image Now
                 </Button>
             </div>
-
-            {/* 🌟 Main Glow Container */}
             <div className="relative z-10 mt-20 flex flex-col lg:flex-row items-center justify-center gap-12 px-4 max-w-6xl mx-auto">
-                
-                {/* Background Glow behind Image+Text */}
                 <div className="absolute inset-0 flex items-center justify-center -z-10">
                     <div className="h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-green-400 via-blue-500 to-purple-600 opacity-30 blur-3xl" />
                 </div>
 
-                {/* 🔥 Image */}
                 <img
                     src={Image1}
                     alt="AI Generated Example"
                     className="rounded-xl max-w-[400px] shadow-2xl"
                 />
-
-                {/* 🔥 Text Content */}
                 <div className="text-left max-w-xl">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
                         Introducing AI Text to Image Generator Online
@@ -59,8 +49,6 @@ export const HeroSection = () => {
                     </p>
                 </div>
             </div>
-
-            {/* Right Glow */}
             <div className="absolute -right-30 top-40 w-[400px] h-[400px] bg-white rounded-full blur-[200px] opacity-25 z-0" />
         </section>
     );
