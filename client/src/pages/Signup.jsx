@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -22,12 +21,18 @@ export const Signup = () => {
     });
 
     try {
-      const response = await axios.post("https://pixlune-backend.onrender.com/api/auth/register", {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://pixlune-backend.onrender.com/api/auth/register", 
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        },
+        {
+          withCredentials: true,  // Include credentials (cookies, authorization headers, etc.)
+        }
+      );
 
       console.log("Signup success:", response.data);
       setResponseMessage("User created successfully!");

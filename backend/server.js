@@ -10,14 +10,14 @@ const port = process.env.PORT;
 const app = express();
 connectDB();
 
-const corsOptions = {
-  origin: 'https://pixlune.com', 
-  credentials: true,             
-};
 
   
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://pix-lune-satyam-kumars-projects-d12d781c.vercel.app',
+  credentials: true, // if you're using cookies or auth headers
+}));
+
 app.use(morgan('dev'));
 app.use("/api", allRoutes);
 
