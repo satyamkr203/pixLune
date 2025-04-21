@@ -13,10 +13,20 @@ connectDB();
 
   
 app.use(express.json());
-app.use(cors({
-  origin: 'https://pix-lune-satyam-kumars-projects-d12d781c.vercel.app',
-  credentials: true, // if you're using cookies or auth headers
-}));
+const allowedOrigins = ['https://pix-lune.vercel.app'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Allow cookies/credentials to be sent
+};
+
+app.use(cors(corsOptions));
 
 app.use(morgan('dev'));
 app.use("/api", allRoutes);
