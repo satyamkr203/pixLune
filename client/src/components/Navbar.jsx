@@ -1,5 +1,5 @@
 import { FaRegCircle } from 'react-icons/fa';
-import { Button } from '@/components/ui/Button'; // ✅ default import
+import { Button } from '@/components/ui/Button.jsx'; // ✅ default import
 import { useNavigate } from 'react-router-dom';
 
 
