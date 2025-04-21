@@ -39,7 +39,7 @@ export const Home = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/auth/generate-image', {
+      const response = await fetch('https://pixlune-backend.onrender.com/api/auth/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

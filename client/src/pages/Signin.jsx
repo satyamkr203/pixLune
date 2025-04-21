@@ -12,7 +12,7 @@ export const Signin = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3000/api/auth/login", { email, password })
+      .post("https://pixlune-backend.onrender.com/api/auth/login", { email, password })
       .then((response) => {
         setResponseMessage("Sign-in successful!");
         localStorage.setItem('token', response.data.token);
